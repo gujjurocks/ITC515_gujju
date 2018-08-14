@@ -7,7 +7,7 @@ public class loan implements Serializable {
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
-	private int ID;
+	private int loan_id; // Change variable name from ID to loan_id
 	private book B;
 	private member M;
 	private Date D;
