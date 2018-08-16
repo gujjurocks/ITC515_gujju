@@ -11,7 +11,7 @@ public class loan implements Serializable {
 	private book book; // Change  variable name from B to book.
 	private member member;	// Change variable name from M to member.
 	private Date dueDate;	// Change variable name from D to dueDate
-	private LOAN_STATE state;
+	private LOAN_STATE loanState;
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
@@ -19,20 +19,20 @@ public class loan implements Serializable {
 		this.book = book;	// Change variable name from B to book.
 		this.member = member;	//Change variable name from M to member
 		this.dueDate = dueDate;	// Change variable name from D to dueDate
-		this.state = LOAN_STATE.CURRENT;
+		this.loanState = LOAN_STATE.CURRENT; //Change variable name state to loanState
 	}
 
 	
 	public void checkOverDue() {
-		if (state == LOAN_STATE.CURRENT &&
+		if (loanState == LOAN_STATE.CURRENT &&	////Change variable name state to loanState
 			Calendar.getInstance().Date().after(dueDate)) { // Change variable name from D to dueDate
-			this.state = LOAN_STATE.OVER_DUE;			
+			this.loanState = LOAN_STATE.OVER_DUE;			//Change variable name state to loanState
 		}
 	}
 
 	
 	public boolean isOverDue() {
-		return state == LOAN_STATE.OVER_DUE;
+		return loanState == LOAN_STATE.OVER_DUE;	////Change variable name state to loanState
 	}
 
 	
@@ -55,24 +55,24 @@ public class loan implements Serializable {
 		  .append(M.getLastName()).append(", ").append(M.getFirstName()).append("\n")
 		  .append("  Book ").append(book.id()).append(" : " ) // Change varibale name from ID to id nad B to book
 		  .append(B.Title()).append("\n")
-		  .append("  DueDate: ").append(simpleDateFormate.format(D)).append("\n")	// Change from sdf to simpleDateFormate
-		  .append("  State: ").append(state);		
+		  .append("  DueDate: ").append(simpleDateFormate.format(dueDate)).append("\n")	// Change from sdf to simpleDateFormate and D to dueDate
+		  .append("  State: ").append(loanState);		
 		return stringBuilder.toString();	//Change variable name from sb to stringBuilder
 	}
 
 
 	public member Member() {
-		return M;
+		return member;
 	}
 
 
 	public book Book() {
-		return B;
+		return book;
 	}
 
 
 	public void Loan() {
-		state = LOAN_STATE.DISCHARGED;		
+		loanState = LOAN_STATE.DISCHARGED;		
 	}
 
 }
