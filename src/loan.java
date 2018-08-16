@@ -3,13 +3,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class loan implements Serializable {
+public class Loan implements Serializable {	//Change class name from loan to Loan (CamelBack)
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
 	private int id; // Change variable name from ID to id
-	private book book; // Change  variable name from B to book.
-	private member member;	// Change variable name from M to member.
+	private Book book; // Change  variable name from B to book.
+	private Member member;	// Change variable name from M to member.
 	private Date dueDate;	// Change variable name from D to dueDate
 	private LOAN_STATE loanState;
 
@@ -31,7 +31,7 @@ public class loan implements Serializable {
 	}
 
 	
-	public boolean isOverDue() {
+	public boolean isNoOverDue() {	//Change method name from isOverDue to isNoOverDue
 		return loanState == LOAN_STATE.OVER_DUE;	////Change variable name state to loanState
 	}
 
