@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 	
 	private static Scanner input;	// Change variable from IN to input(variable must start with Lower case )
-	private static library library;	// Change variable from LIB to library(variable must start with Lower case )
+	private static Library library;	// Change variable from LIB to library(variable must start with Lower case ) Change Class name from library to Library
 	private static String menu; //Change variable from MENU to menu(variable must start with Lower case )
 	private static Calendar calendar; //Change variable from CAL to calendar(variable must start with Lower case )
 	private static SimpleDateFormat simpleDateFormat;// Change variable name from SDF to simpleDateFormat
@@ -40,15 +40,15 @@ public class Main {
 	public static void main(String[] args) {		
 		try {			
 			input = new Scanner(System.in);	//Change variable name from IN to input
-			library = library.INSTANCE();
+			library = Library.INSTANCE();// Change class name from library to Library
 			calendar = Calendar.getInstance();
 			simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // Change variable name from SDF to simpleDateFormat
 	
-			for (member member : library.Members()) { //Change variable from m to member
+			for (Member member : library.Members()) { //Change variable from m to member,LIB to library and class name from member to Member
 				output(member);		
 			}
 			output(" ");
-			for (book book : library.Books()) {	// Change variable name from b to book
+			for (Book book : library.Books()) {	// Change variable name from b to book,LIB to library and class name from book to Book
 				output(book);
 			}
 						
@@ -59,7 +59,7 @@ public class Main {
 			while (!e) {
 				
 				output("\n" + simpleDateFormat.format(calendar.Date()));// 
-				String choice = input(MENU);	//Change variable name from c to choice
+				String choice = input(menu);	//Change variable name from c to choice
 				
 				switch (choice.toUpperCase()) {	//Change variable name from c to choice
 				
@@ -127,7 +127,7 @@ public class Main {
 
 	private static void listCurrentLoans() {
 		output("");
-		for (loan loan : library.CurrentLoans()) {
+		for (Loan loan : library.CurrentLoans()) {	// Change class name From loan to Loan
 			output(loan + "\n");
 		}		
 	}
@@ -136,7 +136,7 @@ public class Main {
 
 	private static void listBooks() {
 		output("");
-		for (book book : library.Books()) {
+		for (Book book : library.Books()) {	// Change class name From book to Book
 			output(book + "\n");
 		}		
 	}
@@ -145,7 +145,7 @@ public class Main {
 
 	private static void listMembers() {
 		output("");
-		for (member member : library.Members()) {
+		for (Member member : library.Members()) { // Change class name From member to Member
 			output(member + "\n");
 		}		
 	}
@@ -185,7 +185,7 @@ public class Main {
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
 		String callNo = input("Enter call number: ");
-		book book = library.Add_book(author, title, callNo);
+		Book book = library.Add_book(author, title, callNo); // Change class name From book to Book
 		output("\n" + book + "\n");
 		
 	}
@@ -197,7 +197,7 @@ public class Main {
 			String firstName  = input("Enter first name: ");
 			String email = input("Enter email: ");
 			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue();
-			member member = library.Add_mem(lastName, firstName, email, phoneNo);
+			Member member = library.Add_mem(lastName, firstName, email, phoneNo);	// Change class name From member to Member
 			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
