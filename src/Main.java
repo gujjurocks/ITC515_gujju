@@ -133,7 +133,6 @@ public class Main {
 	}
 
 
-
 	private static void listBooks() {
 		output("");
 		for (Book book : library.Books()) {	// Change class name From book to Book and variable name from LIB to library
@@ -142,14 +141,12 @@ public class Main {
 	}
 
 
-
 	private static void listMembers() {
 		output("");
 		for (Member member : library.Members()) { // Change class name From member to Member
 			output(member + "\n");
 		}		
 	}
-
 
 
 	private static void borrowBook() {
@@ -186,8 +183,7 @@ public class Main {
 		String title  = input("Enter title: ");
 		String callNo = input("Enter call number: ");
 		Book book = library.addBook(author, title, callNo); // Change class name From book to Book and Add_book to addBook
-		output("\n" + book + "\n");
-		
+		output("\n" + book + "\n");	
 	}
 
 	
@@ -202,8 +198,7 @@ public class Main {
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid phone number\n");
-		}
-		
+		}	
 	}
 
 
@@ -213,10 +208,7 @@ public class Main {
 	}
 	
 	
-	
 	private static void output(Object object) {
 		System.out.println(object);
-	}
-
-	
+	}	
 }
