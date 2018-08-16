@@ -11,7 +11,7 @@ public class Main {
 	private static SimpleDateFormat simpleDateFormat;// Change variable name from SDF to simpleDateFormat
 	
 	
-	private static String Get_menu() {
+	private static String getMenu() {	// Change method name from Get_menu to getMenu
 		StringBuilder stringBuilder = new StringBuilder();// Change variable name from sb to stringBuilder
 		
 		sb.append("\nLibrary Main Menu\n\n")
@@ -40,25 +40,25 @@ public class Main {
 	public static void main(String[] args) {		
 		try {			
 			input = new Scanner(System.in);	//Change variable name from IN to input
-			library = Library.INSTANCE();// Change class name from library to Library
+			library = Library.instance();// Change class name from library to Library and method from INSTANCE to instance
 			calendar = Calendar.getInstance();
 			simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); // Change variable name from SDF to simpleDateFormat
 	
-			for (Member member : library.Members()) { //Change variable from m to member,LIB to library and class name from member to Member
+			for (Member member : library.members()) { //Change variable from m to member,LIB to library and class name from member to Member
 				output(member);		
 			}
 			output(" ");
-			for (Book book : library.Books()) {	// Change variable name from b to book,LIB to library and class name from book to Book
+			for (Book book : library.books()) {	// Change variable name from b to book,LIB to library and class name from book to Book,method from Books to book
 				output(book);
 			}
 						
-			menu = Get_menu();		// Change variable name from MENU to menu
+			menu = getMenu();		// Change variable name from MENU to menu and method from Get_menu to getMenu
 			
 			boolean e = false;
 			
 			while (!e) {
 				
-				output("\n" + simpleDateFormat.format(calendar.Date()));// 
+				output("\n" + simpleDateFormat.format(calendar.date()));//  Change method name from Date to date
 				String choice = input(menu);	//Change variable name from c to choice
 				
 				switch (choice.toUpperCase()) {	//Change variable name from c to choice
@@ -112,7 +112,7 @@ public class Main {
 					break;
 				}
 				
-				library.SAVE();
+				Library.save();// Change class name from library to Library and method from SAVE to save
 			}			
 		} catch (RuntimeException e) {
 			output(e);
@@ -127,7 +127,7 @@ public class Main {
 
 	private static void listCurrentLoans() {
 		output("");
-		for (Loan loan : library.CurrentLoans()) {	// Change class name From loan to Loan
+		for (Loan loan : library.CurrentLoans()) {	// Change class name From loan to Loan and variable name from LIB to library
 			output(loan + "\n");
 		}		
 	}
@@ -136,7 +136,7 @@ public class Main {
 
 	private static void listBooks() {
 		output("");
-		for (Book book : library.Books()) {	// Change class name From book to Book
+		for (Book book : library.Books()) {	// Change class name From book to Book and variable name from LIB to library
 			output(book + "\n");
 		}		
 	}
@@ -172,7 +172,7 @@ public class Main {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			calendar.incrementDate(days);
 			library.checkCurrentLoans();
-			output(simpleDateFormat.format(calendar.Date()));
+			output(simpleDateFormat.format(calendar.date()));// Change method name from Date to date 
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");
@@ -185,7 +185,7 @@ public class Main {
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
 		String callNo = input("Enter call number: ");
-		Book book = library.Add_book(author, title, callNo); // Change class name From book to Book
+		Book book = library.addBook(author, title, callNo); // Change class name From book to Book and Add_book to addBook
 		output("\n" + book + "\n");
 		
 	}
@@ -197,7 +197,7 @@ public class Main {
 			String firstName  = input("Enter first name: ");
 			String email = input("Enter email: ");
 			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue();
-			Member member = library.Add_mem(lastName, firstName, email, phoneNo);	// Change class name From member to Member
+			Member member = library.addMember(lastName, firstName, email, phoneNo);	// Change class name From member to Member and method from Add_mem to addMember
 			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
