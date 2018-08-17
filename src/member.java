@@ -5,30 +5,30 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class member implements Serializable {
-
+public class member implements Serializable 
+{
 	private String LN;
 	private String FN;
 	private String EM;
 	private int PN;
 	private int ID;
 	private double FINES;
-	
 	private Map<Integer, loan> LNS;
 
 	
-	public member(String lastName, String firstName, String email, int phoneNo, int id) {
+	public member(String lastName, String firstName, String email, int phoneNo, int id) 
+	{
 		this.LN = lastName;
 		this.FN = firstName;
 		this.EM = email;
 		this.PN = phoneNo;
 		this.ID = id;
-		
 		this.LNS = new HashMap<>();
 	}
 
 	
-	public String toString() {
+	public String toString() 
+	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("Member:  ").append(ID).append("\n")
 		  .append("  Name:  ").append(LN).append(", ").append(FN).append("\n")
@@ -38,80 +38,99 @@ public class member implements Serializable {
 		  .append(String.format("  Fines Owed :  $%.2f", FINES))
 		  .append("\n");
 		
-		for (loan loan : LNS.values()) {
+		for(loan loan : LNS.values()) 
+		{
 			sb.append(loan).append("\n");
 		}		  
 		return sb.toString();
 	}
 
 	
-	public int getId() {
+	public int getId() 
+	{
 		return ID;
 	}
 
 	
-	public List<loan> getLoans() {
+	public List<loan> getLoans() 
+	{
 		return new ArrayList<loan>(LNS.values());
 	}
 
 	
-	public int getNumberOfCurrentLoans() {
+	public int getNumberOfCurrentLoans() 
+	{
 		return LNS.size();
 	}
 
 	
-	public double getFinesOwed() {
+	public double getFinesOwed() 
+	{
 		return FINES;
 	}
 
 	
-	public void takeOutLoan(loan loan) {
-		if (!LNS.containsKey(loan.getId())) {
+	public void takeOutLoan(loan loan) 
+	{
+		if(!LNS.containsKey(loan.getId())) 
+		{
 			LNS.put(loan.getId(), loan);
 		}
-		else {
+		else 
+		{
 			throw new RuntimeException("Duplicate loan added to member");
 		}		
 	}
 
 	
-	public String getLastName() {
+	public String getLastName() 
+	{
 		return LN;
 	}
 
 	
-	public String getFirstName() {
+	public String getFirstName() 
+	{
 		return FN;
 	}
 
 
-	public void addFine(double fine) {
+	public void addFine(double fine) 
+	{
 		FINES += fine;
 	}
 	
-	public double payFine(double amount) {
-		if (amount < 0) {
+	public double payFine(double amount) 
+	{
+		if(amount < 0) 
+		{
 			throw new RuntimeException("Member.payFine: amount must be positive");
 		}
 		double change = 0;
-		if (amount > FINES) {
+		if(amount > FINES) 
+		{
 			change = amount - FINES;
 			FINES = 0;
 		}
-		else {
+		else 
+		{
 			FINES -= amount;
 		}
 		return change;
 	}
 
 
-	public void dischargeLoan(loan loan) {
-		if (LNS.containsKey(loan.getId())) {
+	public void dischargeLoan(loan loan) 
+	{
+		if(LNS.containsKey(loan.getId())) 
+		{
 			LNS.remove(loan.getId());
 		}
-		else {
+		else 
+		{
 			throw new RuntimeException("No such loan held by member");
 		}		
 	}
-
 }
+
+// this file is edited by author vismay
