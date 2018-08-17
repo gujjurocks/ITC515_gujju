@@ -13,7 +13,7 @@ public class Member implements Serializable  // class name changed from member t
 	private int PN;
 	private int ID;
 	private double FINES;
-	private Map<Integer, loan> LNS;
+	private Map<Integer, Loan> LNS; // class name changed from loan to Loan
 
 	
 	public member(String lastName, String firstName, String email, int phoneNo, int id) // changed constructor method name from member to Member 
