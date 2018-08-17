@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class member implements Serializable 
+public class Member implements Serializable  // class name changed from member to Member
 {
 	private String LN;
 	private String FN;
@@ -16,7 +16,7 @@ public class member implements Serializable
 	private Map<Integer, loan> LNS;
 
 	
-	public member(String lastName, String firstName, String email, int phoneNo, int id) 
+	public member(String lastName, String firstName, String email, int phoneNo, int id) // changed constructor method name from member to Member 
 	{
 		this.LN = lastName;
 		this.FN = firstName;
@@ -29,8 +29,8 @@ public class member implements Serializable
 	
 	public String toString() 
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("Member:  ").append(ID).append("\n")
+		StringBuilder stringBuilder = new StringBuilder(); // changed method name from sb to stringBuilder
+		stringBuilder.append("Member:  ").append(ID).append("\n")
 		  .append("  Name:  ").append(LN).append(", ").append(FN).append("\n")
 		  .append("  Email: ").append(EM).append("\n")
 		  .append("  Phone: ").append(PN)
@@ -52,7 +52,7 @@ public class member implements Serializable
 	}
 
 	
-	public List<loan> getLoans() 
+	public List<Loan> getLoans()  // class name changed from loan to Loan
 	{
 		return new ArrayList<loan>(LNS.values());
 	}
@@ -70,7 +70,7 @@ public class member implements Serializable
 	}
 
 	
-	public void takeOutLoan(loan loan) 
+	public void takeOutLoan(Loan loan)  // class name changed from loan to Loan
 	{
 		if(!LNS.containsKey(loan.getId())) 
 		{
