@@ -1,27 +1,27 @@
 public class PayFineControl 
 {	
-	private PayFineUI ui;
+	private PayFineUi ui;	// class name changed from PayFineUI to PayFineUi
 	private enum CONTROL_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 	private CONTROL_STATE state;
-	private library library;
-	private member member;;
+	private Library library;	// class name changed from library to Library
+	private Member member;	// class name changed from member to Member
 
 
 	public PayFineControl() 
 	{
-		this.library = library.INSTANCE();
+		this.library = library.instance();	// method name changed from INSTANCE to instance
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
 	
-	public void setUI(PayFineUI ui) 
+	public void setUi(PayFineUi ui)	// method name changed from setUI to setUi and class name from PayFineUI to PayFineUi
 	{
 		if (!state.equals(CONTROL_STATE.INITIALISED)) 
 		{
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.ui = ui;
-		ui.setState(PayFineUI.UI_STATE.READY);
+		ui.setState(PayFineUi.UI_STATE.READY); // class name changed from PayFineUI to PayFineUi
 		state = CONTROL_STATE.READY;		
 	}
 
@@ -40,14 +40,14 @@ public class PayFineControl
 			return;
 		}
 		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.PAYING);
+		ui.setState(PayFineUi.UI_STATE.PAYING);	// class name changed from PayFineUI to PayFineUi
 		state = CONTROL_STATE.PAYING;
 	}
 	
 	
 	public void cancel() 
 	{
-		ui.setState(PayFineUI.UI_STATE.CANCELLED);
+		ui.setState(PayFineUi.UI_STATE.CANCELLED);	// class name changed from PayFineUI to PayFineUi
 		state = CONTROL_STATE.CANCELLED;
 	}
 
@@ -65,7 +65,7 @@ public class PayFineControl
 			ui.display(String.format("Change: $%.2f", change));
 		}
 		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.COMPLETED);
+		ui.setState(PayFineUi.UI_STATE.COMPLETED);	// class name changed from PayFineUI to PayFineUi
 		state = CONTROL_STATE.COMPLETED;
 		return change;
 	}
