@@ -10,7 +10,7 @@ public class BorrowBookUI {
 	private UI_STATE state;
 
 	
-	public BorrowBookUI(BorrowBookControl control) {
+	public borrowBookUI(BorrowBookControl control) { //Changed BorrowBookUI to borrowBookUI
 		this.control = control;
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;
