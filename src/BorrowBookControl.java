@@ -5,14 +5,14 @@ public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library L;
-	private member M;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	private Library L; //Changed library to Library
+	private Member M; // Changed member to Member
+	private Enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };//Changed enum to Enum
 	private CONTROL_STATE state;
 	
-	private List<book> PENDING;
-	private List<loan> COMPLETED;
-	private book B;
+	private List<Book> PENDING; // Changed book to Book
+	private List<Loan> COMPLETED; // Changed loan to Loan
+	private Book B; //Changed book to Book
 	
 	
 	public BorrowBookControl() {
