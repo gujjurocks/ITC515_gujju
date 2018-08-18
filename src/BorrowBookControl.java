@@ -15,7 +15,7 @@ public class BorrowBookControl {
 	private Book B; //Changed book to Book
 	
 	
-	public BorrowBookControl() {
+	public borrowBookControl() { //Changed BorrowBookControl to borrowBookControl
 		this.L = L.INSTANCE();
 		state = CONTROL_STATE.INITIALISED;
 	}
@@ -55,12 +55,12 @@ public class BorrowBookControl {
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		B = L.Book(bookId);
+		B = L.book(bookId); // Changed Book to book
 		if (B == null) {
 			ui.display("Invalid bookId");
 			return;
 		}
-		if (!B.Available()) {
+		if (!B.available()) { //Changed Available to available 
 			ui.display("Book cannot be borrowed");
 			return;
 		}
@@ -70,7 +70,7 @@ public class BorrowBookControl {
 		}
 		if (L.loansRemainingForMember(M) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
-			Complete();
+			complete(); // Changed Complete to complete
 		}
 	}
 	
