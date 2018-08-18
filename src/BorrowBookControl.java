@@ -31,7 +31,7 @@ public class BorrowBookControl {
 	}
 
 		
-	public void Swiped(int memberId) {
+	public void swiped(int memberId) { // Changed Swiped to swiped
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
@@ -50,7 +50,7 @@ public class BorrowBookControl {
 			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
 	
 	
-	public void Scanned(int bookId) {
+	public void scanned(int bookId) { //Changed Scanned to scanned
 		B = null;
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
@@ -75,7 +75,7 @@ public class BorrowBookControl {
 	}
 	
 	
-	public void Complete() {
+	public void complete() { //Changed Completed to completed
 		if (PENDING.size() == 0) {
 			cancel();
 		}
