@@ -82,12 +82,12 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
+	public int bookID() { //Method name change BookID to bookID by Reviewer Bharatkumar
 		return BID;
 	}
 	
 	
-	public int MemberID() {
+	public int memberID() {//Method name change MemberID to memberID by Reviewer Bharatkumar
 		return MID;
 	}
 	
@@ -122,14 +122,14 @@ public class library implements Serializable {
 	}
 
 
-	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
+	public member add_mem(String lastName, String firstName, String email, int phoneNo) {	//Method name change Addmem to addmem by Reviewer Bharatkumar	
 		member member = new member(lastName, firstName, email, phoneNo, nextMID());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
+	public book add_book(String a, String t, String c) {	//Method name change Add_book to add_book by Reviewer Bharatkumar	
 		book b = new book(a, t, c, nextBID());
 		catalog.put(b.ID(), b);		
 		return b;
@@ -242,3 +242,4 @@ public class library implements Serializable {
 	
 	
 }
+// Reviwed by Reviewer Bharatkumar aand made required few changes
