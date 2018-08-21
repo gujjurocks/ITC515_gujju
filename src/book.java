@@ -2,7 +2,7 @@ import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-public class book implements Serializable {
+public class Book implements Serializable {  // Change class name from book to Book
 	
 	private String title;  // Change variable name from T to title
 	private String author;  //Change variable name from A to author
@@ -13,7 +13,7 @@ public class book implements Serializable {
 	private STATE state;
 	
 	
-	public book(String author, String title, String callNo, int id) {
+	public Book(String author, String title, String callNo, int id) {    // Change constructor name from book to Book
 		this.author = author;  // Change variable name from A to author
 		this.title = title;  // Change variable name from T to title
 		this.callNo = callNo;  // Change variable name from C to callNo
@@ -22,14 +22,14 @@ public class book implements Serializable {
 	}
 	
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(ID).append("\n")
-		  .append("  Title:  ").append(T).append("\n")
-		  .append("  Author: ").append(A).append("\n")
-		  .append("  CallNo: ").append(C).append("\n")
+		StringBuilder stringBuilder = new StringBuilder();  // Change variable name from sb to stringBuilder
+		stringBuilder.append("Book: ").append(id).append("\n")   // Change variable name from ID to id
+		  .append("  Title:  ").append(title).append("\n")  // Change variable name from T to title
+		  .append("  Author: ").append(author).append("\n")  // Change variable name from A to author
+		  .append("  CallNo: ").append(callNo).append("\n")  // Change variable name from C to callNo
 		  .append("  State:  ").append(state);
 		
-		return sb.toString();
+		return stringBuilder.toString();
 	}
 
 	public Integer id() {    // Change method name from ID to id(CamelBack)
