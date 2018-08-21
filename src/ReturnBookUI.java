@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-
+//There are no other changes such as in class name and method name
 public class ReturnBookUI {
 	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
 	private ReturnBookControl control;
