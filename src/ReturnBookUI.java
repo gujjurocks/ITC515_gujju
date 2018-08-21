@@ -2,9 +2,7 @@ import java.util.Scanner;
 
 
 public class ReturnBookUI {
-
 	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
-
 	private ReturnBookControl control;
 	private Scanner input;
 	private UI_STATE state;
@@ -73,15 +71,14 @@ public class ReturnBookUI {
 	private void output(Object object) {
 		System.out.println(object);
 	}
+
 	
-			
 	public void display(Object object) {
 		output(object);
 	}
 	
+	
 	public void setState(UI_STATE state) {
 		this.state = state;
-	}
-
-	
+	}	
 }
