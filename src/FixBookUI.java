@@ -10,9 +10,9 @@ public class FixBookUI {
 	private UI_STATE state;
 
 	
-	public FixBookUI(FixBookControl control) {
+	public fixBookUI(FixBookControl control) { //Method name changed FixBookUI to fixBookUI by Reviewer Bharatkumar
 		this.control = control;
-		input = new Scanner(System.in);
+		input = new scanner(System.in);// Method name changed Scanner to scanner by Reviewer  Bharatkumar
 		state = UI_STATE.INITIALISED;
 		control.setUI(this);
 	}
@@ -86,3 +86,4 @@ public class FixBookUI {
 	
 	
 }
+// Reviewed by Reviewer Bharatkumar and made few required changes

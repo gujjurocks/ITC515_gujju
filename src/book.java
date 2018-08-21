@@ -4,20 +4,20 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class book implements Serializable {
 	
-	private String T;
-	private String A;
-	private String C;
-	private int ID;
+	private String title;  // Change variable name from T to title
+	private String author;  //Change variable name from A to author
+	private String callNo;  //Change variable name from C to callNo
+	private int id;  //Change variable name from ID to id
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
+		this.author = author;  // Change variable name from A to author
+		this.title = title;  // Change variable name from T to title
+		this.callNo = callNo;  // Change variable name from C to callNo
+		this.id = id; // Change variable name from ID to id
 		this.state = STATE.AVAILABLE;
 	}
 	
@@ -32,32 +32,32 @@ public class book implements Serializable {
 		return sb.toString();
 	}
 
-	public Integer ID() {
-		return ID;
+	public Integer id() {    // Change method name from ID to id(CamelBack)
+		return id;  // Change from ID to id
 	}
 
-	public String Title() {
-		return T;
+	public String title() {     // Change method name from Title to title(CamelBack)
+		return title;  // Change from TITLE to title
 	}
 
 
 	
-	public boolean Available() {
+	public boolean available() {    // Change method name from Available to Available(CamelBack)
 		return state == STATE.AVAILABLE;
 	}
 
 	
-	public boolean On_loan() {
+	public boolean onLoan() {    // Change method name from On_loan to onLoan	
 		return state == STATE.ON_LOAN;
 	}
 
 	
-	public boolean Damaged() {
+	public boolean damaged() {    // Change method name from Damaged to damaged
 		return state == STATE.DAMAGED;
 	}
 
 	
-	public void Borrow() {
+	public void borrow() {    // Change method name from Borrow to borrow
 		if (state.equals(STATE.AVAILABLE)) {
 			state = STATE.ON_LOAN;
 		}
@@ -68,9 +68,9 @@ public class book implements Serializable {
 	}
 
 
-	public void Return(boolean DAMAGED) {
+	public void return(boolean damaged) {     // Change variable name from DAMAGED to damaged and change method name from Return to return
 		if (state.equals(STATE.ON_LOAN)) {
-			if (DAMAGED) {
+			if (damaged) {
 				state = STATE.DAMAGED;
 			}
 			else {
@@ -83,7 +83,7 @@ public class book implements Serializable {
 	}
 
 	
-	public void Repair() {
+	public void repair() {    // Change method name from Repair to repair
 		if (state.equals(STATE.DAMAGED)) {
 			state = STATE.AVAILABLE;
 		}

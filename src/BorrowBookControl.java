@@ -5,17 +5,17 @@ public class BorrowBookControl {
 	
 	private BorrowBookUI ui;
 	
-	private library L;
-	private member M;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	private Library L; //Changed library to Library
+	private Member M; // Changed member to Member
+	private Enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };//Changed enum to Enum
 	private CONTROL_STATE state;
 	
-	private List<book> PENDING;
-	private List<loan> COMPLETED;
-	private book B;
+	private List<Book> PENDING; // Changed book to Book
+	private List<Loan> COMPLETED; // Changed loan to Loan
+	private Book B; //Changed book to Book
 	
 	
-	public BorrowBookControl() {
+	public borrowBookControl() { //Changed BorrowBookControl to borrowBookControl
 		this.L = L.INSTANCE();
 		state = CONTROL_STATE.INITIALISED;
 	}
@@ -31,7 +31,7 @@ public class BorrowBookControl {
 	}
 
 		
-	public void Swiped(int memberId) {
+	public void swiped(int memberId) { // Changed Swiped to swiped
 		if (!state.equals(CONTROL_STATE.READY)) 
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
@@ -50,17 +50,17 @@ public class BorrowBookControl {
 			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
 	
 	
-	public void Scanned(int bookId) {
+	public void scanned(int bookId) { //Changed Scanned to scanned
 		B = null;
 		if (!state.equals(CONTROL_STATE.SCANNING)) {
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		B = L.Book(bookId);
+		B = L.book(bookId); // Changed Book to book
 		if (B == null) {
 			ui.display("Invalid bookId");
 			return;
 		}
-		if (!B.Available()) {
+		if (!B.available()) { //Changed Available to available 
 			ui.display("Book cannot be borrowed");
 			return;
 		}
@@ -70,12 +70,12 @@ public class BorrowBookControl {
 		}
 		if (L.loansRemainingForMember(M) - PENDING.size() == 0) {
 			ui.display("Loan limit reached");
-			Complete();
+			complete(); // Changed Complete to complete
 		}
 	}
 	
 	
-	public void Complete() {
+	public void complete() { //Changed Completed to completed
 		if (PENDING.size() == 0) {
 			cancel();
 		}
