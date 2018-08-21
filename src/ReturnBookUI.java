@@ -17,7 +17,7 @@ public class ReturnBookUI {
 
 
 	public void run() {		
-		output("Return Book Use Case UI\n");
+		output("Return Book Use Case UI\n");  
 		
 		while (true) {
 			
@@ -27,13 +27,13 @@ public class ReturnBookUI {
 				break;
 				
 			case READY:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
+				String bookString = input("Scan Book (<enter> completes): ");  // Change bookstr to bookString
+				if (bookString.length() == 0) {
 					control.scanningComplete();
 				}
 				else {
 					try {
-						int bookId = Integer.valueOf(bookStr).intValue();
+						int bookId = Integer.valueOf(bookString).intValue();
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
@@ -43,15 +43,15 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String ans = input("Is book damaged? (Y/N): ");
+				String answer = input("Is book damaged? (Y/N): ");  // Change ans to answer
 				boolean isDamaged = false;
-				if (ans.toUpperCase().equals("Y")) {					
+				if (answer.toUpperCase().equals("Y")) {					
 					isDamaged = true;
 				}
 				control.dischargeLoan(isDamaged);
 			
 			case COMPLETED:
-				output("Return processing complete");
+				output("Return processing complete");   
 				return;
 			
 			default:
