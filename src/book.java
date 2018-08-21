@@ -4,20 +4,20 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class book implements Serializable {
 	
-	private String T;
-	private String A;
-	private String C;
-	private int ID;
+	private String title;  // Change variable name from T to title
+	private String author;  //Change variable name from A to author
+	private String callNo;  //Change variable name from C to callNo
+	private int id;  //Change variable name from ID to id
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
+		this.author = author;  // Change variable name from A to author
+		this.title = title;  // Change variable name from T to title
+		this.callNo = callNo;  // Change variable name from C to callNo
+		this.id = id; // Change variable name from ID to id
 		this.state = STATE.AVAILABLE;
 	}
 	
@@ -33,11 +33,11 @@ public class book implements Serializable {
 	}
 
 	public Integer ID() {
-		return ID;
+		return id;  // Change from ID to id
 	}
 
 	public String Title() {
-		return T;
+		return title;  // Change from TITLE to title
 	}
 
 
