@@ -1,15 +1,15 @@
 public class FixBookControl {
 	
 	private FixBookUI ui;
-	private Enum CONTROL_STATE { INITIALISED, READY, FIXING }; // Class name changed enum to Enum by Reviewer Bharatkumar
+	private enum CONTROL_STATE { INITIALISED, READY, FIXING }; // Changed ENUM to enum by Author Purva
 	private CONTROL_STATE state;
 	
-	private Library library; // Changed Library to library by Reviewer Bharatkumar
-	private Book currentBook; // Changed book to Book by Reviewer Bharatkumar
+	private Library library; // Changed Library to library by Author Purva
+	private Book currentBook; // Changed book to Book by Author Purva
 
 
-	public fixBookControl() { // Method name changed FixBookControl to fixBookControl by Reviewer Bharatkumar
-		this.library = library.instance(); // Method name changed INSTANCE to instance by Reviewer Bharatkumar
+	public fixBookControl() { // Method name changed FixBookControl to fixBookControl by Author Purva
+		this.library = library.instance(); // Method name changed INSTANCE to instance by Author Purva
 		state = CONTROL_STATE.INITIALISED;
 	}
 	
