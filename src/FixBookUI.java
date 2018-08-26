@@ -86,4 +86,3 @@ public class FixBookUI {
 	
 	
 }
-//Mediator role performed by mediator hitesh
