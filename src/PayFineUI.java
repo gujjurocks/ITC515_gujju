@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
 
-public class PayFineUI {
+public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 
 
-	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // variable name changed from UI_STATE to UiState
 
 	private PayFineControl control;
 	private Scanner input;
-	private UI_STATE state;
+	private UiState state; // variable name changed from UI_STATE to UiState
 
 	
-	public PayFineUI(PayFineControl control) {
+	public PayFineUi(PayFineControl control) { // class name changed from PayFineUI to PayFineUi
 		this.control = control;
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+		state = UiState.INITIALISED; // variable name changed from UI_STATE to UiState
+		control.setUi(this); // variable name changed from setUI to setUi
 	}
 	
 	
-	public void setState(UI_STATE state) {
+	public void setState(UiState state) { // variable name changed from UI_STATE to UiState
 		this.state = state;
 	}
 
@@ -98,3 +98,6 @@ public class PayFineUI {
 
 
 }
+
+// edited by Himalay
+// 
