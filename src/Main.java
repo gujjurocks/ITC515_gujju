@@ -120,7 +120,8 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void payFine() {
+	
+	private static void payFine() {
 		new PayFineUI(new PayFineControl()).run();		
 	}
 
@@ -214,3 +215,4 @@ public class Main {
 }
 
 // This file has been reviewed by reviewer Vismay with no changes
+// this file was monitered by himalay as medatior with no conflit.
