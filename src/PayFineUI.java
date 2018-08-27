@@ -1,7 +1,8 @@
+//This ile reviewed by Reviewer Niyati
+
 import java.util.Scanner;
 
 
-//This ile reviewed by Reviewer Niyati
 public class PayFineUI {
 
 
