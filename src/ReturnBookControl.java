@@ -4,8 +4,8 @@ public class ReturnBookControl {
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE state;
 	
-	private Library library; // change class name library to Library
-	private Loan currentLoan; // change class name loan to Loan
+	private library library;
+	private loan currentLoan;
 	
 
 	public ReturnBookControl() {
@@ -75,5 +75,3 @@ public class ReturnBookControl {
 
 
 }
-
-//edited by Himalay
