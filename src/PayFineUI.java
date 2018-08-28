@@ -1,5 +1,3 @@
-//This ile reviewed by Reviewer Niyati
-
 import java.util.Scanner;
 
 
@@ -34,7 +32,7 @@ public class PayFineUI {
 			switch (state) {
 			
 			case READY:
-				String memberStr = input("Swipe member card (press <enter> to cancel): ");  // changed variable name from memStr to memberStr
+				String memberStr = input("Swipe member card (press <enter> to cancel): "); 
 				if (memberStr.length() == 0) {
 					control.cancel();
 					break;
@@ -50,7 +48,7 @@ public class PayFineUI {
 				
 			case PAYING:
 				double amount = 0;
-				String amountStr = input("Enter amount (<Enter> cancels) : ");  // Changed variable name from amtStr to amountStr
+				String amountStr = input("Enter amount (<Enter> cancels) : ");
 				if (amountStr.length() == 0) {
 					control.cancel();
 					break;
