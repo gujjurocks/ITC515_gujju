@@ -7,7 +7,7 @@ public class Calendar {
 	private static java.util.Calendar cal;
 	
 	
-	private Calendar() {
+	private calendar() { //Changed Calender to calendar
 		cal = java.util.Calendar.getInstance();
 	}
 	
@@ -34,7 +34,7 @@ public class Calendar {
 			throw new RuntimeException(e);
 		}	
 	}
-	public synchronized Date Date() {
+	public synchronized Date date() { // Changed Date to date
 		try {
 	        cal.set(java.util.Calendar.HOUR_OF_DAY, 0);  
 	        cal.set(java.util.Calendar.MINUTE, 0);  
@@ -48,7 +48,7 @@ public class Calendar {
 	}
 
 	public synchronized Date getDueDate(int loanPeriod) {
-		Date now = Date();
+		Date now = date(); //Changed Date() to date()
 		cal.add(java.util.Calendar.DATE, loanPeriod);
 		Date dueDate = cal.getTime();
 		cal.setTime(now);
@@ -56,9 +56,10 @@ public class Calendar {
 	}
 	
 	public synchronized long getDaysDifference(Date targetDate) {
-		long diffMillis = Date().getTime() - targetDate.getTime();
+		long diffMillis = date().getTime() - targetDate.getTime(); //Changed Date() to date()
 	    long diffDays = TimeUnit.DAYS.convert(diffMillis, TimeUnit.MILLISECONDS);
 	    return diffDays;
 	}
 
 }
+//Reviewed by Purva. Chnages not required. 

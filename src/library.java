@@ -15,17 +15,17 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class library implements Serializable {
 	
-	private static final String LIBRARY_FILE = "library.obj";
-	private static final int LOAN_LIMIT = 2;
-	private static final int LOAN_PERIOD = 2;
-	private static final double FINE_PER_DAY = 1.0;
-	private static final double MAX_FINES_OWED = 5.0;
-	private static final double DAMAGE_FEE = 2.0;
+	private static final String library_file = "library.obj"; // Changed LIBRARY_FILE to library_file by Author Purva
+	private static final int loan_limit = 2;// Changed LOAN_LIMIT to loan_limit by Author Purva
+	private static final int loan_period = 2;	// Changed LOAN_PERIOD to loan_period by Author Purva
+	private static final double fine_per_day = 1.0;	// Changed FINE_PER_DAY to fine_per_day by Author Purva
+	private static final double max_fines_owned = 5.0;	// Changed MAX_FINES_OWED  to max_fines_owned  by Author Purva
+	private static final double damage_fee = 2.0;	// Changed DAMAGE_FEE to damage_fee by Author Purva
 	
 	private static library self;
-	private int BID;
-	private int MID;
-	private int LID;
+	private int bid;	// Changed BID to bid by Author Purva
+	private int mid;	// Changed MID to mid by Author Purva
+	private int lid;	// Changed LID to lid by Author Purva
 	private Date loadDate;
 	
 	private Map<Integer, book> catalog;
@@ -41,17 +41,17 @@ public class library implements Serializable {
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		BID = 1;
-		MID = 1;		
-		LID = 1;		
+		bid = 1;	// Changed BID to bid by Author Purva
+		mid = 1;	// Changed MID to mid by Author Purva	
+		lid = 1;	// Changed LID to lid by Author Purva	
 	}
 
 	
 	public static synchronized library INSTANCE() {		
 		if (self == null) {
-			Path path = Paths.get(LIBRARY_FILE);			
+			Path path = Paths.get(library_file); // Changed LIBRARY_FILE to library_file by Author Purva			
 			if (Files.exists(path)) {	
-				try (ObjectInputStream lof = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {
+				try (ObjectInputStream lof = new ObjectInputStream(new FileInputStream(library_file));) {
 			    
 					self = (library) lof.readObject();
 					Calendar.getInstance().setDate(self.loadDate);
@@ -70,7 +70,7 @@ public class library implements Serializable {
 	public static synchronized void SAVE() {
 		if (self != null) {
 			self.loadDate = Calendar.getInstance().Date();
-			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
+			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(library_file));) {
 				lof.writeObject(self);
 				lof.flush();
 				lof.close();	
@@ -82,28 +82,28 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
-		return BID;
+	public int bookID() { //Method name change BookID to bookID by Reviewer Bharatkumar
+		return bid;	// Changed BID to bid by Author Purva
 	}
 	
 	
-	public int MemberID() {
-		return MID;
+	public int memberID() {//Method name change MemberID to memberID by Reviewer Bharatkumar
+		return mid;	// Changed MID to mid by Author Purva
 	}
 	
 	
 	private int nextBID() {
-		return BID++;
+		return bid++;	// Changed BID to bid by Author Purva
 	}
 
 	
 	private int nextMID() {
-		return MID++;
+		return mid++; // Changed MID to mid by Author Purva
 	}
 
 	
 	private int nextLID() {
-		return LID++;
+		return lid++;	// Changed LID to lid by Author Purva	
 	}
 
 	
@@ -122,14 +122,14 @@ public class library implements Serializable {
 	}
 
 
-	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
+	public member add_mem(String lastName, String firstName, String email, int phoneNo) {	//Method name change Addmem to addmem by Reviewer Bharatkumar	
 		member member = new member(lastName, firstName, email, phoneNo, nextMID());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
+	public book add_book(String a, String t, String c) {	//Method name change Add_book to add_book by Reviewer Bharatkumar	
 		book b = new book(a, t, c, nextBID());
 		catalog.put(b.ID(), b);		
 		return b;
@@ -151,15 +151,15 @@ public class library implements Serializable {
 
 	
 	public int loanLimit() {
-		return LOAN_LIMIT;
+		return loan_limit; // Changed LOAN_LIMIT to loan_limit by Author Purva
 	}
 
 	
 	public boolean memberCanBorrow(member member) {		
-		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ) 
+		if (member.getNumberOfCurrentLoans() == loan_limit ) // Changed LOAN_LIMIT to loan_limit by Author Purva 
 			return false;
 				
-		if (member.getFinesOwed() >= MAX_FINES_OWED) 
+		if (member.getFinesOwed() >= max_fines_owned ) // Changed MAX_FINES_OWED  to max_fines_owned  by Author Purva
 			return false;
 				
 		for (loan loan : member.getLoans()) 
@@ -171,12 +171,12 @@ public class library implements Serializable {
 
 	
 	public int loansRemainingForMember(member member) {		
-		return LOAN_LIMIT - member.getNumberOfCurrentLoans();
+		return loan_limit - member.getNumberOfCurrentLoans(); // Changed LOAN_LIMIT to loan_limit by Author Purva 
 	}
 
 	
 	public loan issueLoan(book book, member member) {
-		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
+		Date dueDate = Calendar.getInstance().getDueDate(loan_period); // Changed LOAN_PERIOD to loan_period by Author Purva
 		loan loan = new loan(nextLID(), book, member, dueDate);
 		member.takeOutLoan(loan);
 		book.Borrow();
@@ -197,7 +197,7 @@ public class library implements Serializable {
 	public double calculateOverDueFine(loan loan) {
 		if (loan.isOverDue()) {
 			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());
-			double fine = daysOverDue * FINE_PER_DAY;
+			double fine = daysOverDue * fine_per_day; // Changed FINE_PER_DAY to fine_per_day by Author Purva
 			return fine;
 		}
 		return 0.0;		
@@ -214,7 +214,7 @@ public class library implements Serializable {
 		member.dischargeLoan(currentLoan);
 		book.Return(isDamaged);
 		if (isDamaged) {
-			member.addFine(DAMAGE_FEE);
+			member.addFine(damage_fee); // Changed DAMAGE_FEE to damage_fee by Author Purva
 			damagedBooks.put(book.ID(), book);
 		}
 		currentLoan.Loan();
@@ -242,3 +242,4 @@ public class library implements Serializable {
 	
 	
 }
+// Reviwed by Reviewer Bharatkumar aand made required few changes

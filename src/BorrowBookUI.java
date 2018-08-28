@@ -3,14 +3,14 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static Enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED }; //Changed enum to Enum
 
 	private BorrowBookControl control;
 	private Scanner input;
 	private UI_STATE state;
 
 	
-	public BorrowBookUI(BorrowBookControl control) {
+	public borrowBookUI(BorrowBookControl control) { //Changed BorrowBookUI to borrowBookUI
 		this.control = control;
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;
@@ -115,3 +115,4 @@ public class BorrowBookUI {
 
 
 }
+//Reviewed by Purva. No changes required

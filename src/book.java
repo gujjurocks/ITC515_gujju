@@ -92,3 +92,5 @@ public class Book implements Serializable {  // Change class name from book to B
 		}
 	}
 }
+
+// Mediator role performed by Vismay
