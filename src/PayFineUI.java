@@ -32,13 +32,13 @@ public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 			switch (state) {
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): "); 
-				if (memStr.length() == 0) {
+				String memberStr = input("Swipe member card (press <enter> to cancel): ");  // Changed variable name from memStr to memberStr
+				if (memberStr.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
+					int memberId = Integer.valueOf(memberStr).intValue();
 					control.cardSwiped(memberId);
 				}
 				catch (NumberFormatException e) {
@@ -48,13 +48,13 @@ public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 				
 			case PAYING:
 				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");
-				if (amtStr.length() == 0) {
+				String amountStr = input("Enter amount (<Enter> cancels) : ");  // Changed variable name from amtStr to amountStr
+				if (amountStr.length() == 0) {
 					control.cancel();
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();
+					amount = Double.valueOf(amountStr).doubleValue();
 				}
 				catch (NumberFormatException e) {}
 				if (amount <= 0) {
@@ -99,4 +99,5 @@ public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 
 }
 // edited by Himalay Patel
+// This file reviewed by Niyati Patel
 
