@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 
-public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 
+public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 
 	public static enum UiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // variable name changed from UI_STATE to UiState
 
@@ -32,7 +32,7 @@ public class PayFineUi { // class name changed from PayFineUI to PayFineUi
 			switch (state) {
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
+				String memStr = input("Swipe member card (press <enter> to cancel): "); 
 				if (memStr.length() == 0) {
 					control.cancel();
 					break;
