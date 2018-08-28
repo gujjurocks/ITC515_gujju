@@ -1,11 +1,12 @@
+//This file reviewed by Reviewer Niyati
 public class ReturnBookControl {
 
 	private ReturnBookUI ui;
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE state;
 	
-	private library library;
-	private loan currentLoan;
+	private Library library; // change class name library to Library
+	private Loan currentLoan; // change class name loan to Loan
 	
 
 	public ReturnBookControl() {
@@ -75,3 +76,5 @@ public class ReturnBookControl {
 
 
 }
+
+//edited by Himalay
